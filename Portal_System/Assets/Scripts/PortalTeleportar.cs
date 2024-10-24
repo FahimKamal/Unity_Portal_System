@@ -31,4 +31,6 @@ public class PortalTeleporter : MonoBehaviour
             m_PlayerIsOverLapping = false;
         }
     }
+
+    private int test; 
 }
