@@ -17,7 +17,18 @@ public class PortalTeleporter : MonoBehaviour
             // If this is true: The player has moved across the portal 
             if (dotProduct < 0f)
             {
-                // Teleport player. 
+                // Teleport player.
+                // Rotate the player
+                var rotationDiff = -Quaternion.Angle(transform.rotation, receiver.rotation);
+                rotationDiff += 180;
+                player.Rotate(Vector3.up, rotationDiff);
+                
+                // Change the position of player. 
+                var positionOffset = Quaternion.Euler(0f, rotationDiff, 0f) * portalToPlayer;
+                player.position = receiver.position + positionOffset;
+
+                // m_PlayerIsOverLapping = false;
+                Debug.Log("Going to other portal.");
             }
         }
     }
@@ -37,6 +48,4 @@ public class PortalTeleporter : MonoBehaviour
             m_PlayerIsOverLapping = false;
         }
     }
-
-    private float test;
 }
