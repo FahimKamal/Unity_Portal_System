@@ -27,7 +27,7 @@ public class PortalTeleporter : MonoBehaviour
                 var positionOffset = Quaternion.Euler(0f, rotationDiff, 0f) * portalToPlayer;
                 player.position = receiver.position + positionOffset;
 
-                // m_PlayerIsOverLapping = false;
+                m_PlayerIsOverLapping = false;
                 Debug.Log("Going to other portal.");
             }
         }
